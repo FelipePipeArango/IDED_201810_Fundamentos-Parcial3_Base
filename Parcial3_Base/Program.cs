@@ -37,6 +37,12 @@ namespace Parcial3_Base
         /// <returns>'true' si las matrices pueden sumarse, 'false' de otro modo</returns>
         public bool SePuedenSumarMatrices(int[,] A, int[,] B)
         {
+            //hay una matrix A y una B
+            if (A.GetLength(0) == B.GetLength(1))
+            {
+                return true;
+            }
+
             return false;
         }
 
@@ -74,7 +80,17 @@ namespace Parcial3_Base
         /// <returns>Un arreglo cuyos elementos están en orden inverso a arr</returns>
         public int[] InvertirArreglo(int[] arr)
         {
-            return null;
+            int[] arreglo = new int[6];
+            
+            for (int i = 0; i == arr.GetLength(i); i++)
+            {
+                for (int j = arr.GetLength(i) ; j == 0 - 1; j--)
+                {
+                    arr[i] = arreglo[j]; 
+                    //return arreglo;     
+                }
+            }
+            return arreglo;
         }
 
         /// <summary>
@@ -106,7 +122,26 @@ namespace Parcial3_Base
         /// <returns>La matriz AxB</returns>
         public int[,] MultiplicarMatrices(int[,] A, int[,] B)
         {
-            return null;
+            if (A.GetLength(1) != B.GetLength(0))
+            {
+                return null;
+            }
+            else
+            {
+                int[,] matrix3 = new int[A.GetLength(0), B.GetLength(1)];
+                for (int i = 0; i < A.GetLength(0); i++)
+                {
+                    for (int j = 0; j < B.GetLength(1); j++)
+                    {
+                        for (int k = 0; k < A.GetLength(1); k++)
+                        {
+                            matrix3[i, j] = matrix3[i, j] + (A[i, k] * B[k, j]);
+                        }
+                    }
+                }
+                return matrix3;
+            }
+            
         }
 
         #endregion MEDIUM
@@ -126,6 +161,23 @@ namespace Parcial3_Base
             int hrs = 0;
             int mins = 0;
             int segs = 0;
+            //for (int i = 0; i <= totalSegs; i++)
+            
+                if (segs%3600 >= 0)
+                {
+                    hrs += 1;
+                }
+                if (segs%60 >= 0)
+                {
+                    mins += 1;
+                }
+                else if (segs < 60)
+                {
+                    segs = segs + 1;
+
+                }
+            
+           
             return string.Format("{0} hrs : {1} mins : {2} segs", hrs, mins, segs);
         }
 
@@ -141,7 +193,15 @@ namespace Parcial3_Base
         /// <returns>'true' si hay algún punto en que las esferas se toquen, 'false' de otro modo</returns>
         public bool HayColisión(Centro c1, float r1, Centro c2, float r2)
         {
-            return false;
+            
+            if (((c2.X - c1.X)* (c2.X - c1.X)) + ((c2.Y - c1.Y)*(c2.Y - c1.Y)) >= (r2 - r1)* (r2 - r1))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -151,6 +211,7 @@ namespace Parcial3_Base
         /// <returns>El primer número primo mayor que n</returns>
         public int ProximoPrimo(int n)
         {
+
             return 0;
         }
 
